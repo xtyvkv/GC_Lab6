@@ -171,9 +171,14 @@ namespace GC_Lab6
                     Console.WriteLine();
                     continue;
                 }
-                else
+                else if (goAgainInput =="n")
                 {
                     Console.WriteLine("Goodbye!");
+                    break;
+                }
+                else
+                {
+                    Console.WriteLine("Invalid input. Goodbye!");
                     break;
                 }
             }
