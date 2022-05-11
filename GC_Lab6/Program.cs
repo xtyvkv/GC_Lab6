@@ -4,7 +4,7 @@ using System.Linq;
  
 // TO DO - make category an int, and convert
 // print out category list and let user select by number
-// avoid all of the else ifs where you type out each category twice
+// avoid all of the else ifs where you type out each category twice?
 
 namespace GC_Lab6
 {
@@ -15,28 +15,14 @@ namespace GC_Lab6
 
         public override string ToString()
         {
-            return "Title: " + Title + " // Genre: " + Category;
+            return Title;
         }
-
-        /*
-        public override bool Equals( object obj )
-        {
-            if (obj == null) return false;
-            Movie objAsMovie = obj as Movie;
-            if (objAsMovie == null) return false;
-            else return Equals(objAsMovie);
-        }
-        public bool Equals(Movie other)
-        {
-            if (other == null) return false;
-            return (this.GenreID.Equals(other.GenreID));
-        }
-        */
     }
     internal class Program
     {
         static void Main( string[] args )
         {
+            bool goAgain = true;
             List<Movie> movieList = new List<Movie>();
 
             // add movies
@@ -51,6 +37,7 @@ namespace GC_Lab6
             movieList.Add(new Movie() { Title = "Groundhog Day", Category = "Romantic Comedy" });
             movieList.Add(new Movie() { Title = "The Exorcist", Category = "Horror" });
 
+            // just for fun, messin around
             /*
             // print movie list out with all info
             Console.WriteLine();
@@ -65,119 +52,131 @@ namespace GC_Lab6
             {
                 Console.WriteLine(movie);
             }
-
-            Console.WriteLine();
-
-            // print sci-fi movies
-            foreach (Movie movie in movieList)
-            {
-                if (movie.Category == "Sci-Fi")
-                {
-                    Console.WriteLine(movie);
-                }
-            }
-
-            Console.WriteLine();
             */
 
-            // ask user to enter category
-            // just make this into an array to easily print out
-            Console.WriteLine("Please choose a category:\n" +
-                "Animated\n" +
-                "Sci-Fi\n" +
-                "Comedy\n" +
-                "Horror\n" +
-                "Fantasy\n" +
-                "Documentary\n" +
-                "Action\n" +
-                "Romantic Comedy\n");
-            string categoryChoice = Console.ReadLine();
-            if (String.IsNullOrWhiteSpace(categoryChoice))
+            Console.WriteLine("Welcome to the Movie List Application!");
+            Console.WriteLine();
+            Console.WriteLine($"There are {movieList.Count} movies in this list.");
+            while (goAgain == true)
             {
-                Console.WriteLine("Invalid input.");
-            }
-            else if (categoryChoice == "Animated")
-            {
-                foreach (Movie movie in movieList)
+                Console.Write("What category are you interested in? ");
+
+                // print category list
+                /*
+                Console.WriteLine(
+                    "Animated\n" +
+                    "Sci-Fi\n" +
+                    "Comedy\n" +
+                    "Horror\n" +
+                    "Fantasy\n" +
+                    "Documentary\n" +
+                    "Action\n" +
+                    "Romantic Comedy\n");
+                */
+                string categoryChoice = Console.ReadLine();
+                if (String.IsNullOrWhiteSpace(categoryChoice))
                 {
-                    if (movie.Category == "Animated")
+                    Console.WriteLine("Invalid input.");
+                }
+                else if (string.Equals(categoryChoice, "Animated", StringComparison.InvariantCultureIgnoreCase))
+                {
+                    foreach (Movie movie in movieList)
                     {
-                        Console.WriteLine(movie);
+                        if (movie.Category == "Animated")
+                        {
+                            Console.WriteLine(movie);
+                        }
                     }
                 }
-            }
-            else if (string.Equals(categoryChoice, "Sci-Fi", StringComparison.InvariantCultureIgnoreCase))
-            {
-                foreach (Movie movie in movieList)
+                else if (string.Equals(categoryChoice, "Sci-Fi", StringComparison.InvariantCultureIgnoreCase))
                 {
-                    if (movie.Category == "Sci-Fi")
+                    foreach (Movie movie in movieList)
                     {
-                        Console.WriteLine(movie);
+                        if (movie.Category == "Sci-Fi")
+                        {
+                            Console.WriteLine(movie);
+                        }
                     }
                 }
-            }
-            else if (string.Equals(categoryChoice, "Comedy", StringComparison.InvariantCultureIgnoreCase))
-            {
-                foreach (Movie movie in movieList)
+                else if (string.Equals(categoryChoice, "Comedy", StringComparison.InvariantCultureIgnoreCase))
                 {
-                    if (movie.Category == "Comedy")
+                    foreach (Movie movie in movieList)
                     {
-                        Console.WriteLine(movie);
+                        if (movie.Category == "Comedy")
+                        {
+                            Console.WriteLine(movie);
+                        }
                     }
                 }
-            }
-            else if (string.Equals(categoryChoice, "Horror", StringComparison.InvariantCultureIgnoreCase))
-            {
-                foreach (Movie movie in movieList)
+                else if (string.Equals(categoryChoice, "Horror", StringComparison.InvariantCultureIgnoreCase))
                 {
-                    if (movie.Category == "Horror")
+                    foreach (Movie movie in movieList)
                     {
-                        Console.WriteLine(movie);
+                        if (movie.Category == "Horror")
+                        {
+                            Console.WriteLine(movie);
+                        }
                     }
                 }
-            }
-            else if (string.Equals(categoryChoice, "Fantasy", StringComparison.InvariantCultureIgnoreCase))
-            {
-                foreach (Movie movie in movieList)
+                else if (string.Equals(categoryChoice, "Fantasy", StringComparison.InvariantCultureIgnoreCase))
                 {
-                    if (movie.Category == "Fantasy")
+                    foreach (Movie movie in movieList)
                     {
-                        Console.WriteLine(movie);
+                        if (movie.Category == "Fantasy")
+                        {
+                            Console.WriteLine(movie);
+                        }
                     }
                 }
-            }
-            else if (string.Equals(categoryChoice, "Documentary", StringComparison.InvariantCultureIgnoreCase))
-            {
-                foreach (Movie movie in movieList)
+                else if (string.Equals(categoryChoice, "Documentary", StringComparison.InvariantCultureIgnoreCase))
                 {
-                    if (movie.Category == "Documentary")
+                    foreach (Movie movie in movieList)
                     {
-                        Console.WriteLine(movie);
+                        if (movie.Category == "Documentary")
+                        {
+                            Console.WriteLine(movie);
+                        }
                     }
                 }
-            }
-            else if (string.Equals(categoryChoice, "Action", StringComparison.InvariantCultureIgnoreCase))
-            {
-                foreach (Movie movie in movieList)
+                else if (string.Equals(categoryChoice, "Action", StringComparison.InvariantCultureIgnoreCase))
                 {
-                    if (movie.Category == "Action")
+                    foreach (Movie movie in movieList)
                     {
-                        Console.WriteLine(movie);
+                        if (movie.Category == "Action")
+                        {
+                            Console.WriteLine(movie);
+                        }
                     }
                 }
-            }
-            else if (string.Equals(categoryChoice, "Romantic Comedy", StringComparison.InvariantCultureIgnoreCase))
-            {
-                foreach (Movie movie in movieList)
+                else if (string.Equals(categoryChoice, "Romantic Comedy", StringComparison.InvariantCultureIgnoreCase))
                 {
-                    if (movie.Category == "Romantic Comedy")
+                    foreach (Movie movie in movieList)
                     {
-                        Console.WriteLine(movie);
+                        if (movie.Category == "Romantic Comedy")
+                        {
+                            Console.WriteLine(movie);
+                        }
                     }
                 }
+                else
+                {
+                    Console.WriteLine("I don't have that category.");
+                }
+
+                Console.WriteLine();
+                Console.Write("Continue (y/n)? ");
+                string goAgainInput = Console.ReadLine();
+                if (goAgainInput == "y")
+                {
+                    Console.WriteLine();
+                    continue;
+                }
+                else
+                {
+                    Console.WriteLine("Goodbye!");
+                    break;
+                }
             }
-            else
-                Console.WriteLine("I don't have that category.");
         }
     }
 }
