@@ -165,7 +165,7 @@ namespace GC_Lab6
 
                 Console.WriteLine();
                 Console.Write("Continue (y/n)? ");
-                string goAgainInput = Console.ReadLine();
+                string goAgainInput = Console.ReadLine().ToLower();
                 if (goAgainInput == "y")
                 {
                     Console.WriteLine();
